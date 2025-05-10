@@ -5,7 +5,8 @@
  */
 async function getCities() {
     try {
-        const response = await fetch(`pensamientos-irreverentes/public/data/cities.json`);
+        const basePath = typeof process !== 'undefined' && process.env.PUBLIC_URL || '/';
+        const response = await fetch(`${basePath}public/data/cities.json`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

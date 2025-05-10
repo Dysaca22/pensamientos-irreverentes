@@ -5,9 +5,10 @@
  */
 async function getCities() {
     try {
-        const currentPath = window.location.pathname;
-        console.log(currentPath);
-        const response = await fetch(`${currentPath}public/data/cities.json`);
+        const basePath = window.location.pathname.endsWith('/') 
+            ? window.location.pathname 
+            : window.location.pathname + '/';
+        const response = await fetch(`${basePath}public/data/cities.json`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

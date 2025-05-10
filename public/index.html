@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pensamientos Irreverentes</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            seagull: {
+                                50: "#f0f9ff",
+                                100: "#e0f2fe",
+                                200: "#bae6fd",
+                                300: "#7dd3fc",
+                                400: "#38bdf8",
+                                500: "#0ea5e9",
+                                600: "#0284c7",
+                                700: "#0369a1",
+                                800: "#075985",
+                                900: "#0c4a6e",
+                                950: "#082f49",
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+        <link rel="stylesheet" href="styles/loader.css" />
+        <style>
+            #modal {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                opacity: 0;
+            }
+            #modal.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body
+        class="m-0 h-screen flex flex-col items-center font-['Merriweather'] p-2 sm:p-5 bg-white"
+    >
+        <div
+            class="w-[95%] md:w-[90%] lg:w-[80%] mb-4 md:mb-6 text-center px-4 md:px-0"
+        >
+            <h1
+                class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-seagull-700 to-seagull-900 bg-clip-text text-transparent leading-tight"
+            >
+                Pensamientos Irreverentes
+            </h1>
+            <p
+                class="mt-2 text-sm md:text-base text-seagull-800 max-w-2xl mx-auto"
+            >
+                Descubre los secretos mejor guardados de tu ciudad
+            </p>
+        </div>
+
+        <div
+            class="custom-loader absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+        ></div>
+
+        <div
+            id="map"
+            class="hidden w-[90%] h-[80vh] rounded-xl border-none shadow-lg transition-all duration-300 outline-none focus:outline-none"
+        >
+            <div class="absolute top-4 right-4 z-[1000] flex flex-col gap-4">
+                <label class="relative">
+                    <p
+                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-seagull-800 rounded"
+                    >
+                        Estilo del mapa
+                    </p>
+                    <select
+                        id="mapStyleSelector"
+                        class="p-2 bg-white rounded-md shadow-lg w-full border border-seagull-300 focus:border-seagull-500 focus:ring-2 focus:ring-seagull-200 outline-none"
+                    >
+                        <option
+                            value="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        >
+                            Estándar
+                        </option>
+                        <option
+                            value="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                        >
+                            Claro
+                        </option>
+                        <option
+                            value="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                        >
+                            Oscuro
+                        </option>
+                        <option
+                            value="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                        >
+                            Satelital
+                        </option>
+                        <option
+                            value="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+                        >
+                            Topográfico
+                        </option>
+                    </select>
+                </label>
+                <label class="relative">
+                    <p
+                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-seagull-800 rounded"
+                    >
+                        Ciudad
+                    </p>
+                    <select
+                        id="mapCitySelector"
+                        class="p-2 bg-white rounded-md shadow-lg w-full border border-seagull-300 focus:border-seagull-500 focus:ring-2 focus:ring-seagull-200 outline-none"
+                    ></select>
+                </label>
+            </div>
+        </div>
+
+        <div
+            id="modal"
+            class="fixed inset-0 w-full sm:w-96 h-full p-4 sm:p-6 overflow-y-auto z-[1000] bg-white/98 shadow-lg flex flex-col transform transition-transform duration-200 ease-in-out -translate-x-full sm:translate-x-0 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
+        >
+            <!-- Close Button -->
+            <button
+                onclick="closeModal()"
+                class="absolute top-4 right-4 sm:relative sm:top-0 sm:right-0 sm:ml-auto text-seagull-600 hover:text-seagull-800 p-1.5 rounded-md transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-180 focus:outline-none"
+                aria-label="Close modal"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-width="1.5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                    />
+                </svg>
+            </button>
+            <!-- Modal Content -->
+            <div id="modal-content" class="flex-1 mt-4 text-gray-800 space-y-6">
+                <!-- Badge -->
+                <span
+                    id="modal-type"
+                    class="inline-block px-3 py-1 bg-seagull-100 text-seagull-800 rounded-md text-sm font-medium"
+                ></span>
+
+                <!-- Title -->
+                <h2
+                    class="text-2xl font-bold text-seagull-900"
+                    id="modal-title"
+                ></h2>
+
+                <!-- Image Container -->
+                <div class="relative">
+                    <img
+                        src=""
+                        alt=""
+                        class="w-full h-48 object-cover rounded-lg shadow-md transition-opacity duration-200 hover:opacity-95"
+                        id="modal-image"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-4">
+                    <!-- Location -->
+                    <div class="flex items-center gap-2 text-seagull-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 flex-shrink-0"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span id="modal-location" class="text-sm"></span>
+                    </div>
+
+                    <!-- Description -->
+                    <p
+                        class="text-seagull-700 leading-relaxed text-base"
+                        id="modal-description"
+                    ></p>
+
+                    <!-- CTA Button -->
+                    <a
+                        href="#"
+                        target="_blank"
+                        id="modal-link"
+                        class="inline-flex items-center justify-center px-4 py-2 bg-seagull-600 text-white rounded-md hover:bg-seagull-700 transition-colors duration-200 text-sm shadow-md hover:shadow-lg"
+                    >
+                        Visitar sitio web
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 ml-2"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                            />
+                            <path
+                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-2 right-8 z-[1000]">
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
+                class="mt-10 group relative inline-block text-seagull-600 hover:text-seagull-800 duration-300"
+                target="_blank"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="3em"
+                    height="3em"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8m-4-6l-4-4l-4 4m4-4v13"
+                    />
+                </svg>
+                <span
+                    class="absolute hidden group-hover:flex bottom-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-28 px-2 py-1 bg-seagull-800 rounded-lg text-center text-white text-sm before:content-[''] before:absolute before:top-[100%] before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-b-transparent before:border-t-seagull-800"
+                >
+                    ¿Tienes algún lugar secreto?
+                </span>
+            </a>
+        </div>
+
+        <script src="scripts/init.js" type="module"></script>
+        <script>
+            function closeModal() {
+                const modal = document.getElementById("modal");
+                modal.classList.remove("active");
+            }
+        </script>
+    </body>
+</html>

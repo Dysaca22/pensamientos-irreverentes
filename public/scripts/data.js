@@ -5,7 +5,10 @@
  */
 async function getCities() {
     try {
-        const response = await fetch(`public/data/cities.json`);
+        const basePath = window.location.pathname.endsWith('/') 
+            ? window.location.pathname 
+            : window.location.pathname + '/';
+        const response = await fetch(`${basePath}public/data/cities.json`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -16,6 +19,7 @@ async function getCities() {
         return [];
     }
 }
+
 /**
  * Fetches and parses data from Google Sheet
  * @returns {Promise<Array>} Data in JSON format

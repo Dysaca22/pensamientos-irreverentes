@@ -45,7 +45,7 @@ function updateModalContent(lugar) {
     const modalElements = {
         "modal-type": lugar["Tipo"],
         "modal-title": lugar["Nombre"],
-        "modal-image": "./images/" + lugar["Nombre"] + ".jpg",
+        "modal-image": "./public/images/" + lugar["Nombre"] + ".jpg",
         "modal-description": lugar["Descripción"],
         "modal-location": lugar["Dirección"],
         "modal-link": lugar["Sitio Web"],

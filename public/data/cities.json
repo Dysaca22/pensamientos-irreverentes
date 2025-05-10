@@ -1,0 +1,14 @@
+{
+    "cities": [
+        {
+            "name": "Barranquilla",
+            "country": "Colombia",
+            "coords": [10.981727449684493, -74.8075940256914]
+        },
+        {
+            "name": "Puerto Colombia",
+            "country": "Colombia",
+            "coords": [10.998882279799817, -74.95185554274862]
+        }
+    ]
+}

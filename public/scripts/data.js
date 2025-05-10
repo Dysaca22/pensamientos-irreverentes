@@ -1,5 +1,5 @@
 async function getCities() {
-    const response = await fetch("/public/data/cities.json");
+    const response = await fetch("./public/data/cities.json");
     const { cities } = await response.json();
     return cities;
 }

@@ -1,60 +1,98 @@
-async function getCities() {
-    const response = await fetch("./public/data/cities.json");
-    const { cities } = await response.json();
-    return cities;
-}
-
 /**
- * Obtiene y parsea datos del Google Sheet
- * @returns {Promise<Array>} Datos en formato JSON
+ * Fetches cities data from JSON file
+ * @returns {Promise<Array>} Cities data
+ * @throws {Error} If fetch or parsing fails
  */
-async function getSheetData() {
+async function getCities() {
     try {
-        const response = await fetch(
-            "https://docs.google.com/spreadsheets/d/1Q1U1PVQQ0gxLnVgQkx2YpqZX67N__P02Tn5E-gp_DDk/export?format=tsv&gid=0"
-        );
-        const text = await response.text();
-        return parseTSV(text);
+        const currentPath = window.location.pathname;
+        console.log(currentPath);
+        const response = await fetch(`${currentPath}public/data/cities.json`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const { cities } = await response.json();
+        return cities;
     } catch (error) {
-        console.error("Error leyendo Google Sheet:", error);
+        console.error("Error fetching cities:", error);
         return [];
     }
 }
 
 /**
- * Convierte TSV a JSON
- * @param {string} tsv
- * @returns {Array}
+ * Fetches and parses data from Google Sheet
+ * @returns {Promise<Array>} Data in JSON format
+ * @throws {Error} If fetch or parsing fails
+ */
+async function getSheetData() {
+    const SHEET_URL =
+        "https://docs.google.com/spreadsheets/d/1Q1U1PVQQ0gxLnVgQkx2YpqZX67N__P02Tn5E-gp_DDk/export?format=tsv&gid=0";
+
+    try {
+        const response = await fetch(SHEET_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const text = await response.text();
+        return parseTSV(text);
+    } catch (error) {
+        console.error("Error reading Google Sheet:", error);
+        return [];
+    }
+}
+
+/**
+ * Converts TSV to JSON
+ * @param {string} tsv - TSV formatted string
+ * @returns {Array<Object>} Array of objects with header keys
+ * @throws {Error} If TSV parsing fails
  */
 function parseTSV(tsv) {
-    const lines = tsv.split(/\r?\n/);
-    const headers = lines[0].split("\t");
+    if (!tsv?.trim()) {
+        return [];
+    }
+
+    const lines = tsv.split(/\r?\n/).filter(Boolean);
+    if (!lines.length) {
+        return [];
+    }
+
+    const headers = lines[0].split("\t").map((header) => header.trim());
+
     return lines.slice(1).map((line) => {
         const values = line.split("\t");
-        return headers.reduce((obj, header, i) => {
-            obj[header] = values[i] || null;
+        return headers.reduce((obj, header, index) => {
+            obj[header] = values[index]?.trim() || null;
             return obj;
         }, {});
     });
 }
 
 /**
- * Filtra las ubicaciones por país y ciudad
- * @param {string} country
- * @param {string} city
- * @returns {Promise<Array>} Ubicaciones filtradas
+ * Filters locations by country and city
+ * @param {string} [country] - Optional country filter
+ * @param {string} [city] - Optional city filter
+ * @returns {Promise<Array>} Filtered locations
  */
 export async function getLocations(country, city) {
     const data = await getSheetData();
+
     return data.filter((location) => {
         const [locationCity, locationCountry] =
-            location["Ciudad, País"].split(", ");
-        return (
-            (!country ||
-                locationCountry.toLowerCase() === country.toLowerCase()) &&
-            (!city || locationCity.toLowerCase() === city.toLowerCase())
-        );
+            location["Ciudad, País"]?.split(", ") ?? [];
+
+        const countryMatch =
+            !country ||
+            locationCountry?.toLowerCase() === country.toLowerCase();
+        const cityMatch =
+            !city || locationCity?.toLowerCase() === city.toLowerCase();
+
+        return countryMatch && cityMatch;
     });
 }
 
-export const ciudades = await getCities();
+// Cache cities data to avoid unnecessary fetches
+export const ciudades = await getCities().catch((error) => {
+    console.error("Failed to initialize cities:", error);
+    return [];
+});

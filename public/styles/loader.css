@@ -9,7 +9,7 @@
     content: "";
     grid-area: 1/1;
     border-radius: 50%;
-    background: repeating-conic-gradient(#0000, #0a6f9a 1deg 18deg, #0000 20deg 36deg);
+    background: repeating-conic-gradient(#0000, #a06293 1deg 18deg, #0000 20deg 36deg);
     -webkit-mask: repeating-radial-gradient(farthest-side, #000 0 10%, #0000 0 20%);
     animation: h10 4s infinite linear;
 }

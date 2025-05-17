@@ -1,17 +1,17 @@
 const MARKER_ICON = L.divIcon({
-    className: "text-seagull-800 marker-icon",
+    className: "marker-icon",
     html: `
-      <svg width="40" height="40" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="30" fill="currentColor" stroke="#e1f4fd" stroke-width="4"/>
-        <path d="M32 18a14 14 0 1 1 0 28 14 14 0 0 1 0-28z" fill="#e1f4fd"/>
-        <circle cx="32" cy="32" r="7" fill="currentColor"/>
-        <circle cx="32" cy="32" r="3" fill="#e1f4fd"/>
-      </svg>
+        <lord-icon
+            src="https://cdn.lordicon.com/bpmglzll.json"
+            trigger="loop"
+            delay="3700"
+            colors="primary:#874f79"
+            style="width:50px;height:50px">
+        </lord-icon>
     `,
-    iconSize: [40, 40],
-    iconAnchor: [20, 20],
+    iconSize: [50, 50],
+    iconAnchor: [25, 50],
 });
-
 /**
  * Adds a marker to the map and sets up its click event handler
  * @param {L.Map} map - The Leaflet map instance
@@ -28,12 +28,24 @@ export function addMarker(map, lugar) {
 
     marker.on("click", () => {
         updateModalContent(lugar);
-        document.querySelectorAll(".marker-icon").forEach((icon) => {
-            icon.classList.remove("text-seagull-300");
-        });
-        marker.getElement().classList.add("text-seagull-300");
+        resetMarkerIcons();
+        const lordIcon = marker.getElement().querySelector("lord-icon");
+        lordIcon.setAttribute("colors", "primary:#c799c1");
+        lordIcon.setAttribute("delay", "0");
     });
     return marker;
+}
+
+/**
+ * Resets the marker icons to their default state
+ */
+function resetMarkerIcons() {
+    document.querySelectorAll(".marker-icon").forEach((icon) => {
+        const lordIcon = icon.querySelector("lord-icon");
+        lordIcon.setAttribute("colors", "primary:#874f79");
+        lordIcon.setAttribute("delay", "3700");
+        lordIcon.playerInstance.playFromBeginning();
+    });
 }
 
 /**
@@ -54,9 +66,27 @@ function updateModalContent(lugar) {
     Object.entries(modalElements).forEach(([elementId, value]) => {
         const element = modalContent.querySelector(`#${elementId}`);
         if (elementId === "modal-image") {
-            element.src = value;
+            const img = new Image();
+            img.onload = () => {
+                element.src = value;
+            };
+            img.onerror = () => {
+                element.src = "./public/images/default.jpg";
+            };
+            img.src = value;
         } else if (elementId === "modal-link") {
             element.href = value;
+            switch (true) {
+                case value.includes("facebook"):
+                    element.querySelector("span").textContent = "Facebook";
+                    break;
+                case value.includes("instagram"):
+                    element.querySelector("span").textContent = "Instagram";
+                    break;
+                case value.includes("tiktok"):
+                    element.querySelector("span").textContent = "TikTok";
+                    break;
+            }
         } else {
             element.textContent = value;
         }

@@ -4,94 +4,202 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pensamientos Irreverentes</title>
+
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/public/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/public/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/public/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/public/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/public/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/public/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/public/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/public/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/public/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/public/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/public/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/public/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/public/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Styles -->
         <link
             rel="stylesheet"
             href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
             crossorigin=""
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="public/styles/loader.css" />
+
+        <!-- Scripts -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+        <!-- Tailwind Configuration -->
         <script>
             tailwind.config = {
                 theme: {
                     extend: {
                         colors: {
-                            seagull: {
-                                50: "#f0f9ff",
-                                100: "#e0f2fe",
-                                200: "#bae6fd",
-                                300: "#7dd3fc",
-                                400: "#38bdf8",
-                                500: "#0ea5e9",
-                                600: "#0284c7",
-                                700: "#0369a1",
-                                800: "#075985",
-                                900: "#0c4a6e",
-                                950: "#082f49",
+                            custom: {
+                                50: "#f9f6f9",
+                                100: "#f5eef4",
+                                200: "#ecdeeb",
+                                300: "#dec3db",
+                                400: "#c799c1",
+                                500: "#b67ead",
+                                600: "#a06293",
+                                700: "#874f79",
+                                800: "#714366",
+                                900: "#603b57",
+                                950: "#381f32",
                             },
                         },
                     },
                 },
             };
         </script>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;500;600&display=swap"
-            rel="stylesheet"
-        />
-        <script
-            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""
-        ></script>
-        <link rel="stylesheet" href="public/styles/loader.css" />
+
+        <!-- Custom Styles -->
         <style>
             #modal {
                 transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 opacity: 0;
+                backdrop-filter: blur(8px);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             }
             #modal.active {
                 transform: translateX(0);
                 opacity: 1;
             }
+            .modal-content-enter {
+                animation: slideUp 0.5s ease-out forwards;
+            }
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            * {
+                font-family: "Luckiest Guy", cursive;
+                font-weight: 400;
+                font-style: normal;
+            }
         </style>
     </head>
-    <body
-        class="m-0 h-screen flex flex-col items-center font-['Merriweather'] p-2 sm:p-5 bg-white"
-    >
-        <div
+    <body class="m-0 h-screen flex flex-col items-center p-2 sm:p-5 bg-white">
+        <!-- Header Section -->
+        <header
             class="w-[95%] md:w-[90%] lg:w-[80%] mb-4 md:mb-6 text-center px-4 md:px-0"
         >
             <h1
-                class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-seagull-700 to-seagull-900 bg-clip-text text-transparent leading-tight"
+                class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-custom-300 to-custom-950 bg-clip-text text-transparent leading-tight"
             >
                 Pensamientos Irreverentes
             </h1>
             <p
-                class="mt-2 text-sm md:text-base text-seagull-800 max-w-2xl mx-auto"
+                class="mt-2 text-sm md:text-base text-custom-950 max-w-2xl mx-auto"
             >
                 Descubre los secretos mejor guardados de tu ciudad
             </p>
-        </div>
+        </header>
 
+        <!-- Loader -->
         <div
             class="custom-loader absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
         ></div>
 
-        <div
+        <!-- Map Container -->
+        <main
             id="map"
             class="hidden w-[90%] h-[80vh] rounded-xl border-none shadow-lg transition-all duration-300 outline-none focus:outline-none"
         >
             <div class="absolute top-4 right-4 z-[1000] flex flex-col gap-4">
                 <label class="relative">
                     <p
-                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-seagull-800 rounded"
+                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-custom-800 rounded"
                     >
                         Estilo del mapa
                     </p>
                     <select
                         id="mapStyleSelector"
-                        class="p-2 bg-white rounded-md shadow-lg w-full border border-seagull-300 focus:border-seagull-500 focus:ring-2 focus:ring-seagull-200 outline-none"
+                        class="p-2 bg-white rounded-md shadow-lg w-full border border-custom-300 focus:border-custom-500 focus:ring-2 focus:ring-custom-200 outline-none"
                     >
                         <option
                             value="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -122,30 +230,30 @@
                 </label>
                 <label class="relative">
                     <p
-                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-seagull-800 rounded"
+                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-custom-800 rounded"
                     >
                         Ciudad
                     </p>
                     <select
                         id="mapCitySelector"
-                        class="p-2 bg-white rounded-md shadow-lg w-full border border-seagull-300 focus:border-seagull-500 focus:ring-2 focus:ring-seagull-200 outline-none"
+                        class="p-2 bg-white rounded-md shadow-lg w-full border border-custom-300 focus:border-custom-500 focus:ring-2 focus:ring-custom-200 outline-none"
                     ></select>
                 </label>
             </div>
-        </div>
+        </main>
 
-        <div
+        <!-- Modal -->
+        <aside
             id="modal"
-            class="fixed inset-0 w-full sm:w-96 h-full p-4 sm:p-6 overflow-y-auto z-[1000] bg-white shadow-lg flex flex-col transform transition-transform duration-200 ease-in-out -translate-x-full sm:translate-x-0"
+            class="fixed inset-0 w-full sm:w-96 h-full overflow-y-auto z-[1000] bg-white/95 shadow-2xl flex flex-col transform transition-all duration-300 ease-out -translate-x-full sm:translate-x-0 rounded-r-2xl"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
         >
-            <!-- Close Button -->
             <button
                 onclick="closeModal()"
-                class="absolute top-4 right-4 sm:relative sm:top-0 sm:right-0 sm:ml-auto text-seagull-600 hover:text-seagull-800 p-1.5 rounded-md transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-180 focus:outline-none"
+                class="absolute top-4 right-4 text-custom-600 hover:text-custom-800 p-2 rounded-full bg-white/50 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-180 focus:outline-none shadow-md hover:shadow-lg [transform-style:preserve-3d]"
                 aria-label="Close modal"
             >
                 <svg
@@ -163,64 +271,63 @@
                     />
                 </svg>
             </button>
-            <!-- Modal Content -->
-            <div id="modal-content" class="flex-1 mt-4 text-gray-800 space-y-6">
-                <!-- Badge -->
+            <div
+                id="modal-content"
+                class="flex-1 mt-6 text-gray-800 space-y-8 p-6"
+            >
                 <span
                     id="modal-type"
-                    class="inline-block px-3 py-1 bg-seagull-100 text-seagull-800 rounded-md text-sm font-medium"
+                    class="inline-block px-4 py-1.5 bg-custom-100/80 text-custom-800 rounded-full text-sm font-medium backdrop-blur-sm shadow-sm"
                 ></span>
-
-                <!-- Title -->
                 <h2
-                    class="text-2xl font-bold text-seagull-900"
+                    class="text-3xl font-bold text-custom-900 leading-tight"
                     id="modal-title"
                 ></h2>
-
-                <!-- Image Container -->
-                <div class="relative">
+                <div class="relative group">
                     <img
                         src=""
                         alt=""
-                        class="w-full h-48 object-cover rounded-lg shadow-md transition-opacity duration-200 hover:opacity-95"
+                        class="w-full h-56 object-cover rounded-xl shadow-xl transition-all duration-300 group-hover:transform group-hover:scale-[1.02] group-hover:shadow-2xl"
                         id="modal-image"
                         loading="lazy"
                     />
+                    <div
+                        class="absolute inset-0 rounded-xl bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
                 </div>
-
-                <!-- Content -->
-                <div class="space-y-4">
-                    <!-- Location -->
-                    <div class="flex items-center gap-2 text-seagull-600">
+                <div class="space-y-6">
+                    <div
+                        class="flex items-center gap-3 text-custom-600 bg-custom-50/50 p-3 rounded-lg backdrop-blur-sm"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 flex-shrink-0"
-                            viewBox="0 0 20 20"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
                             fill="currentColor"
+                            class="icon icon-tabler icons-tabler-filled icon-tabler-map-pin"
                         >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path
-                                fill-rule="evenodd"
-                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                clip-rule="evenodd"
+                                d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z"
                             />
                         </svg>
-                        <span id="modal-location" class="text-sm"></span>
+                        <span
+                            id="modal-location"
+                            class="text-xs font-medium"
+                        ></span>
                     </div>
-
-                    <!-- Description -->
                     <p
-                        class="text-seagull-700 leading-relaxed text-base"
+                        class="text-custom-700 leading-relaxed text-base bg-white/50 p-4 rounded-xl backdrop-blur-sm"
                         id="modal-description"
                     ></p>
-
-                    <!-- CTA Button -->
                     <a
                         href="#"
                         target="_blank"
                         id="modal-link"
-                        class="inline-flex items-center justify-center px-4 py-2 bg-seagull-600 text-white rounded-md hover:bg-seagull-700 transition-colors duration-200 text-sm shadow-md hover:shadow-lg"
+                        class="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-custom-600 to-custom-700 text-white rounded-xl hover:from-custom-700 hover:to-custom-800 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
-                        Visitar sitio web
+                        Visita el <span class="ml-1">Sitio web</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-4 w-4 ml-2"
@@ -237,12 +344,13 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </aside>
 
+        <!-- Add Location Button -->
         <div class="absolute bottom-2 right-8 z-[1000]">
             <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
-                class="mt-10 group relative inline-block text-seagull-600 hover:text-seagull-800 duration-300"
+                class="mt-10 group relative inline-block text-custom-600 hover:text-custom-800 duration-300"
                 target="_blank"
             >
                 <svg
@@ -250,29 +358,45 @@
                     width="3em"
                     height="3em"
                     viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin-plus text-custom-600 group-hover:text-custom-800"
                 >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
                     <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8m-4-6l-4-4l-4 4m4-4v13"
+                        d="M12.794 21.322a2 2 0 0 1 -2.207 -.422l-4.244 -4.243a8 8 0 1 1 13.59 -4.616"
                     />
+                    <path d="M16 19h6" />
+                    <path d="M19 16v6" />
                 </svg>
                 <span
-                    class="absolute hidden group-hover:flex bottom-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-28 px-2 py-1 bg-seagull-800 rounded-lg text-center text-white text-sm before:content-[''] before:absolute before:top-[100%] before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-b-transparent before:border-t-seagull-800"
+                    class="absolute hidden group-hover:flex bottom-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-28 px-2 py-1 bg-custom-800 rounded-lg text-center text-white text-sm before:content-[''] before:absolute before:top-[100%] before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-b-transparent before:border-t-custom-800"
                 >
                     ¿Tienes algún lugar secreto?
                 </span>
             </a>
         </div>
 
+        <!-- Scripts -->
         <script src="./public/scripts/init.js" type="module"></script>
         <script>
             function closeModal() {
                 const modal = document.getElementById("modal");
                 modal.classList.remove("active");
+                resetMarkerIcons();
+            }
+
+            function resetMarkerIcons() {
+                document.querySelectorAll(".marker-icon").forEach((icon) => {
+                    const lordIcon = icon.querySelector("lord-icon");
+                    lordIcon.setAttribute("colors", "primary:#874f79");
+                    lordIcon.setAttribute("delay", "3700");
+                    lordIcon.playerInstance.playFromBeginning();
+                });
             }
         </script>
     </body>

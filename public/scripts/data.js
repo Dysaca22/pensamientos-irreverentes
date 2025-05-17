@@ -1,21 +1,24 @@
 /**
  * Fetches cities data from JSON file
- * @returns {Promise<Array>} Cities data
+ * @returns {Promise<Array<Object>>} Array of city objects
  * @throws {Error} If fetch or parsing fails
  */
 async function getCities() {
+    const BASE_PATH = window.location.pathname.replace(/\/?$/, '/');
+    const CITIES_ENDPOINT = `${BASE_PATH}public/data/cities.json`;
+
     try {
-        const basePath = window.location.pathname.endsWith('/') 
-            ? window.location.pathname 
-            : window.location.pathname + '/';
-        const response = await fetch(`${basePath}public/data/cities.json`);
+        const response = await fetch(CITIES_ENDPOINT);
+        
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`Failed to fetch cities: ${response.status} ${response.statusText}`);
         }
-        const { cities } = await response.json();
-        return cities;
+
+        const { cities = [] } = await response.json();
+        return Array.isArray(cities) ? cities : [];
+        
     } catch (error) {
-        console.error("Error fetching cities:", error);
+        console.error('Error fetching cities:', error.message);
         return [];
     }
 }

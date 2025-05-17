@@ -86,6 +86,9 @@ function updateModalContent(lugar) {
                 case value.includes("tiktok"):
                     element.querySelector("span").textContent = "TikTok";
                     break;
+                default:
+                    element.querySelector("span").textContent = "Sitio Web";
+                    break;
             }
         } else {
             element.textContent = value;

@@ -1,0 +1,47 @@
+* {
+    font-family: "Fredoka", sans-serif;
+}
+
+.fredoka {
+    font-family: "Fredoka", sans-serif;
+}
+
+.Birthstone {
+    font-family: "Birthstone", sans-serif;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.2px);
+    -webkit-backdrop-filter: blur(3.2px);
+}
+
+.glass-light {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.2px);
+    -webkit-backdrop-filter: blur(1.2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 4px;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}

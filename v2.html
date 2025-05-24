@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pensamientos Irreverentes</title>
+        <!-- Custom Style -->
+        <link rel="stylesheet" href="/public/styles/reset.css" />
+        <link rel="stylesheet" href="/public/styles/main.css" />
+        <link rel="stylesheet" href="/public/styles/particles.css" />
+        <link rel="stylesheet" href="/public/styles/button-bubble.css" />
+        <!-- Icons -->
+        <link
+            href="https://cdn.lineicons.com/5.0/lineicons.css"
+            rel="stylesheet"
+        />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Birthstone&family=Fredoka:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/public/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/public/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/public/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/public/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/public/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/public/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/public/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/public/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/public/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/public/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/public/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/public/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/public/favicon/favicon-16x16.png"
+        />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Tailwind Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            base: {
+                                50: "#f2fbf9",
+                                100: "#d5f2eb",
+                                200: "#aae5d8",
+                                300: "#78d0bf",
+                                400: "#4cb5a4",
+                                500: "#329a8a",
+                                600: "#267b71",
+                                700: "#246961",
+                                800: "#1f504b",
+                                900: "#1e4340",
+                                950: "#0c2725",
+                            },
+                            background: {
+                                50: "#fffefb",
+                                100: "#f5f4f1",
+                                200: "#eeece7",
+                                300: "#dbd7cd",
+                                400: "#c4bdad",
+                                500: "#aba08c",
+                                600: "#9a8b75",
+                                700: "#8e7c68",
+                                800: "#766758",
+                                900: "#61544b",
+                                950: "#50473e",
+                            },
+                            accent: {
+                                50: "#ffffe7",
+                                100: "#feffc1",
+                                200: "#fffd86",
+                                300: "#fff441",
+                                400: "#ffe60d",
+                                500: "#ffd700",
+                                600: "#d19e00",
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+        <!-- Carousel -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </head>
+    <body class="bg-background-300 fredoka">
+        <header></header>
+        <main class="flex flex-col gap-8">
+            <article
+                class="py-16 px-8 rounded-b-3xl flex flex-col justify-center items-center gap-8 shadow-2xl mx-2 bg-background-100"
+            >
+                <section
+                    class="cursor-default relative overflow-hidden"
+                    id="particles"
+                >
+                    <div class="title relative">
+                        <h1
+                            class="text-[clamp(4rem,10vw,10rem)] text-center font-[Birthstone] whitespace-nowrap"
+                        >
+                            Pensamientos Irreverentes
+                        </h1>
+                        <div
+                            class="absolute top-1/2 -translate-y-1/2 flex justify-center w-full"
+                        >
+                            <span
+                                class="glass w-3/4 max-w-[700px] h-[12vh] -rotate-[.01turn]"
+                            ></span>
+                        </div>
+                    </div>
+                    <h2
+                        class="text-base sm:text-lg md:text-xl lg:text-2xl text-center"
+                    >
+                        Tu ciudad tiene secretos y nosotros tenemos las llaves
+                    </h2>
+                </section>
+                <section>
+                    <form
+                        action="/busqueda"
+                        method="get"
+                        class="flex items-center bg-white border border-gray-300 rounded-full shadow p-2"
+                    >
+                        <select
+                            name="lugar"
+                            class="appearance-none bg-white text-gray-700 text-sm px-6 py-3 focus:outline-none w-full cursor-pointer"
+                        >
+                            <option disabled selected hidden>
+                                Encuentra lugares ocultos en tu ciudad...
+                            </option>
+                            <option value="BAQ">Barranquilla</option>
+                        </select>
+                        <button
+                            type="submit"
+                            class="bg-base-300 text-white text-sm font-semibold px-4 py-2 h-full rounded-full hover:bg-base-400 transition"
+                        >
+                            <i class="lni lni-search-2"></i>
+                        </button>
+                    </form>
+                </section>
+                <section
+                    class="flex flex-row items-center justify-center gap-8 flex-wrap"
+                >
+                    <a
+                        href="/busqueda"
+                        class="rounded-full px-6 py-3 text-center bg-accent-400 hover:scale-105 transition flex items-center gap-2"
+                        >Ver el Mapa <i class="lni lni-map-marker-1"></i
+                    ></a>
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
+                        class="rounded-full px-6 py-3 text-center bg-base-50 hover:scale-105 transition flex items-center gap-2"
+                        >Agrega tu Secreto <i class="lni lni-plus"></i
+                    ></a>
+                </section>
+            </article>
+            <article class="m-10 flex flex-col gap-8">
+                <section class="flex flex-row justify-between items-end">
+                    <p class="text-xl font-semibold">
+                        Secretos recién agregados
+                    </p>
+
+                    <div
+                        class="relative flex items-center gap-2 group cursor-pointer"
+                    >
+                        <a
+                            href="/busqueda"
+                            class="text-base-600"
+                            >Ver todos</a
+                        >
+                        <div
+                            class="absolute top-[105%] left-1/2 -translate-x-1/2 h-[1px] w-[105%] bg-base-600 origin-center transform group-hover:scale-x-110 group-hover:top-[120%] group-hover:h-[2px] transition-all duration-300"
+                        ></div>
+                    </div>
+                </section>
+                <section
+                    class="flex flex-col justify-center items-center gap-4"
+                >
+                    <div class="swiper w-full h-[200px] carousel mx-20">
+                        <div class="swiper-wrapper">
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 1
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 2
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 3
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 4
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 5
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 6
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 7
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 8
+                            </div>
+                            <div
+                                class="swiper-slide text-center bg-background-500 w-1/2"
+                            >
+                                Slide 9
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-row justify-center items-center gap-4"
+                    >
+                        <i
+                            class="carousel-left-btn lni lni-arrow-left-circle text-4xl text-base-600 hover:scale-110"
+                        ></i>
+                        <i
+                            class="carousel-right-btn lni lni-arrow-right-circle text-4xl text-base-600 hover:scale-110"
+                        ></i>
+                    </div>
+                </section>
+            </article>
+            <article>
+                <section></section>
+                <section></section>
+            </article>
+        </main>
+        <footer
+            class="py-10 px-8 rounded-t-3xl flex flex-col justify-center items-center gap-8 mx-2 bg-background-100"
+            style="box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1)"
+        >
+            <h3 class="text-2xl font-semibold">
+                Explora sin límites, comparte sin filtros
+            </h3>
+            <p class="text-center">
+                ¿Tienes un lugar secreto? <br />
+                Llena este pequeño formulario y háznoslos saber
+            </p>
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
+                ><svg
+                    class="svg-bubble"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                >
+                    <defs>
+                        <filter id="gooey">
+                            <feGaussianBlur
+                                in="SourceGraphic"
+                                stdDeviation="5"
+                                result="blur"
+                            />
+                            <feColorMatrix
+                                in="blur"
+                                type="matrix"
+                                values="1 0 0 0 0  
+                                    0 1 0 0 0  
+                                    0 0 1 0 0  
+                                    0 0 0 19 -9"
+                                result="highContrastGraphic"
+                            />
+                            <feComposite
+                                in="SourceGraphic"
+                                in2="highContrastGraphic"
+                                operator="atop"
+                            />
+                        </filter>
+                    </defs>
+                </svg>
+                <button
+                    id="gooey-button"
+                    class="relative text-white bg-base-400 px-6 py-3 border-none focus:outline-none rounded-md"
+                >
+                    Formulario <i class="lni lni-file-plus-circle"></i>
+                    <span class="bubbles absolute inset-0">
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                    </span></button
+            ></a>
+        </footer>
+        <!-- Custom Script -->
+        <script>
+            const swiper = new Swiper(".carousel", {
+                direction: "horizontal",
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 30,
+                mousewheel: true,
+                loop: true,
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: ".carousel-right-btn",
+                    prevEl: ".carousel-left-btn",
+                },
+            });
+        </script>
+        <script type="module">
+            import { createParticles } from "./public/scripts/particles.js";
+
+            const canvas_particles = document.querySelector("#particles");
+            (function loop() {
+                setTimeout(() => {
+                    createParticles(canvas_particles);
+                    loop();
+                }, Math.random() * 3000);
+            })();
+        </script>
+    </body>
+</html>

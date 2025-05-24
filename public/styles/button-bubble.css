@@ -1,0 +1,249 @@
+.svg-bubble {
+  position: absolute;
+  top: -4000px;
+  left: -4000px;
+}
+
+#gooey-button {
+  filter: url('#gooey');
+}
+
+.bubble {
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Burbujas con animaciones aleatorias */
+/* Simulamos 10 animaciones únicas */
+.bubble:nth-child(1) {
+  left: 10%;
+  width: 25px;
+  height: 25px;
+  animation: move1 3.2s infinite;
+  animation-delay: 0.2s;
+}
+
+.bubble:nth-child(2) {
+  left: 20%;
+  width: 25px;
+  height: 25px;
+  animation: move2 3.4s infinite;
+  animation-delay: 0.4s;
+}
+
+.bubble:nth-child(3) {
+  left: 30%;
+  width: 25px;
+  height: 25px;
+  animation: move3 3.6s infinite;
+  animation-delay: 0.6s;
+}
+
+.bubble:nth-child(4) {
+  left: 40%;
+  width: 25px;
+  height: 25px;
+  animation: move4 3.8s infinite;
+  animation-delay: 0.8s;
+}
+
+.bubble:nth-child(5) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation: move5 4s infinite;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(6) {
+  left: 60%;
+  width: 25px;
+  height: 25px;
+  animation: move6 4.2s infinite;
+  animation-delay: 1.2s;
+}
+
+.bubble:nth-child(7) {
+  left: 70%;
+  width: 25px;
+  height: 25px;
+  animation: move7 4.4s infinite;
+  animation-delay: 1.4s;
+}
+
+.bubble:nth-child(8) {
+  left: 80%;
+  width: 25px;
+  height: 25px;
+  animation: move8 4.6s infinite;
+  animation-delay: 1.6s;
+}
+
+.bubble:nth-child(9) {
+  left: 90%;
+  width: 25px;
+  height: 25px;
+  animation: move9 4.8s infinite;
+  animation-delay: 1.8s;
+}
+
+.bubble:nth-child(10) {
+  left: 95%;
+  width: 25px;
+  height: 25px;
+  animation: move10 5s infinite;
+  animation-delay: 2s;
+}
+
+@keyframes move1 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-120px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-130px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move3 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move4 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-140px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move5 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-110px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move6 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-160px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move7 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-150px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move8 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-90px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move9 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-170px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes move10 {
+  0% {
+    transform: translateY(0);
+  }
+
+  99% {
+    transform: translateY(-80px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}

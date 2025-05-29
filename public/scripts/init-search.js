@@ -47,10 +47,6 @@ function specialSelectFilter(places, special) {
             return places.filter((place) =>
                 place["especial"].includes("Comida")
             );
-        case "EJ":
-            return places.filter((place) =>
-                place["especial"].includes("Espantajopo")
-            );
         case "TL":
             return places.filter((place) =>
                 place["especial"].includes("Evento")

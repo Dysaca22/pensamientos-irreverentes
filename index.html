@@ -4,400 +4,401 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pensamientos Irreverentes</title>
-
+        <!-- Custom Style -->
+        <link rel="stylesheet" href="public/styles/main.css" />
+        <link rel="stylesheet" href="public/styles/particles.css" />
+        <link rel="stylesheet" href="public/styles/button-bubble.css" />
+        <!-- Icons -->
+        <link
+            href="https://cdn.lineicons.com/5.0/lineicons.css"
+            rel="stylesheet"
+        />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Birthstone&family=Fredoka:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
         <!-- Favicon -->
         <link
             rel="apple-touch-icon"
             sizes="57x57"
-            href="/public/favicon/apple-icon-57x57.png"
+            href="public/favicon/apple-icon-57x57.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="60x60"
-            href="/public/favicon/apple-icon-60x60.png"
+            href="public/favicon/apple-icon-60x60.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="72x72"
-            href="/public/favicon/apple-icon-72x72.png"
+            href="public/favicon/apple-icon-72x72.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="76x76"
-            href="/public/favicon/apple-icon-76x76.png"
+            href="public/favicon/apple-icon-76x76.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="114x114"
-            href="/public/favicon/apple-icon-114x114.png"
+            href="public/favicon/apple-icon-114x114.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="120x120"
-            href="/public/favicon/apple-icon-120x120.png"
+            href="public/favicon/apple-icon-120x120.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="144x144"
-            href="/public/favicon/apple-icon-144x144.png"
+            href="public/favicon/apple-icon-144x144.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="152x152"
-            href="/public/favicon/apple-icon-152x152.png"
+            href="public/favicon/apple-icon-152x152.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/public/favicon/apple-icon-180x180.png"
+            href="public/favicon/apple-icon-180x180.png"
         />
         <link
             rel="icon"
             type="image/png"
             sizes="192x192"
-            href="/public/favicon/android-icon-192x192.png"
+            href="public/favicon/android-icon-192x192.png"
         />
         <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/public/favicon/favicon-32x32.png"
+            href="public/favicon/favicon-32x32.png"
         />
         <link
             rel="icon"
             type="image/png"
             sizes="96x96"
-            href="/public/favicon/favicon-96x96.png"
+            href="public/favicon/favicon-96x96.png"
         />
         <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/public/favicon/favicon-16x16.png"
+            href="public/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-
-        <!-- Styles -->
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-            crossorigin=""
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="public/styles/loader.css" />
-
-        <!-- Scripts -->
+        <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
-        <script
-            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""
-        ></script>
-        <script src="https://cdn.lordicon.com/lordicon.js"></script>
-
         <!-- Tailwind Configuration -->
         <script>
             tailwind.config = {
                 theme: {
                     extend: {
                         colors: {
-                            custom: {
-                                50: "#f9f6f9",
-                                100: "#f5eef4",
-                                200: "#ecdeeb",
-                                300: "#dec3db",
-                                400: "#c799c1",
-                                500: "#b67ead",
-                                600: "#a06293",
-                                700: "#874f79",
-                                800: "#714366",
-                                900: "#603b57",
-                                950: "#381f32",
+                            base: {
+                                50: "#f2fbf9",
+                                100: "#d5f2eb",
+                                200: "#aae5d8",
+                                300: "#78d0bf",
+                                400: "#4cb5a4",
+                                500: "#329a8a",
+                                600: "#267b71",
+                                700: "#246961",
+                                800: "#1f504b",
+                                900: "#1e4340",
+                                950: "#0c2725",
+                            },
+                            background: {
+                                50: "#fffefb",
+                                100: "#f5f4f1",
+                                200: "#eeece7",
+                                300: "#dbd7cd",
+                                400: "#c4bdad",
+                                500: "#aba08c",
+                                600: "#9a8b75",
+                                700: "#8e7c68",
+                                800: "#766758",
+                                900: "#61544b",
+                                950: "#50473e",
+                            },
+                            accent: {
+                                50: "#ffffe7",
+                                100: "#feffc1",
+                                200: "#fffd86",
+                                300: "#fff441",
+                                400: "#ffe60d",
+                                500: "#ffd700",
+                                600: "#d19e00",
                             },
                         },
                     },
                 },
             };
         </script>
-
-        <!-- Custom Styles -->
-        <style>
-            #modal {
-                transform: translateX(-100%);
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 0;
-                backdrop-filter: blur(8px);
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            }
-            #modal.active {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            .modal-content-enter {
-                animation: slideUp 0.5s ease-out forwards;
-            }
-            @keyframes slideUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            * {
-                font-family: "Luckiest Guy", cursive;
-                font-weight: 400;
-                font-style: normal;
-            }
-        </style>
+        <!-- Carousel -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
-    <body class="m-0 h-screen flex flex-col items-center p-2 sm:p-5 bg-white">
-        <!-- Header Section -->
-        <header
-            class="w-[95%] md:w-[90%] lg:w-[80%] mb-4 md:mb-6 text-center px-4 md:px-0"
-        >
-            <h1
-                class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-custom-300 to-custom-950 bg-clip-text text-transparent leading-tight"
-            >
-                Pensamientos Irreverentes
-            </h1>
-            <p
-                class="mt-2 text-sm md:text-base text-custom-950 max-w-2xl mx-auto"
-            >
-                Descubre los secretos mejor guardados de tu ciudad
-            </p>
-        </header>
-
-        <!-- Loader -->
-        <div
-            class="custom-loader absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-        ></div>
-
-        <!-- Map Container -->
-        <main
-            id="map"
-            class="hidden w-[90%] h-[80vh] rounded-xl border-none shadow-lg transition-all duration-300 outline-none focus:outline-none"
-        >
-            <div class="absolute top-4 right-4 z-[1000] flex flex-col gap-4">
-                <label class="relative">
-                    <p
-                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-custom-800 rounded"
-                    >
-                        Estilo del mapa
-                    </p>
-                    <select
-                        id="mapStyleSelector"
-                        class="p-2 bg-white rounded-md shadow-lg w-full border border-custom-300 focus:border-custom-500 focus:ring-2 focus:ring-custom-200 outline-none"
-                    >
-                        <option
-                            value="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        >
-                            Estándar
-                        </option>
-                        <option
-                            value="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                        >
-                            Claro
-                        </option>
-                        <option
-                            value="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                        >
-                            Oscuro
-                        </option>
-                        <option
-                            value="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-                        >
-                            Satelital
-                        </option>
-                        <option
-                            value="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-                        >
-                            Topográfico
-                        </option>
-                    </select>
-                </label>
-                <label class="relative">
-                    <p
-                        class="absolute -top-2 left-1 px-1 text-[0.65rem] bg-white text-custom-800 rounded"
-                    >
-                        Ciudad
-                    </p>
-                    <select
-                        id="mapCitySelector"
-                        class="p-2 bg-white rounded-md shadow-lg w-full border border-custom-300 focus:border-custom-500 focus:ring-2 focus:ring-custom-200 outline-none"
-                    ></select>
-                </label>
-            </div>
-        </main>
-
-        <!-- Modal -->
-        <aside
-            id="modal"
-            class="fixed inset-0 w-full sm:w-96 h-full overflow-y-auto z-[1000] bg-white/95 shadow-2xl flex flex-col transform transition-all duration-300 ease-out -translate-x-full sm:translate-x-0 rounded-r-2xl"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            aria-describedby="modal-description"
-        >
-            <button
-                onclick="closeModal()"
-                class="absolute top-4 right-4 text-custom-600 hover:text-custom-800 p-2 rounded-full bg-white/50 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-180 focus:outline-none shadow-md hover:shadow-lg [transform-style:preserve-3d]"
-                aria-label="Close modal"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-width="1.5"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                    />
-                </svg>
-            </button>
-            <div
-                id="modal-content"
-                class="flex-1 mt-6 text-gray-800 space-y-8 p-6"
-            >
-                <span
-                    id="modal-type"
-                    class="inline-block px-4 py-1.5 bg-custom-100/80 text-custom-800 rounded-full text-sm font-medium backdrop-blur-sm shadow-sm"
-                ></span>
-                <h2
-                    class="text-3xl font-bold text-custom-900 leading-tight"
-                    id="modal-title"
-                ></h2>
-                <div class="relative group">
-                    <img
-                        src=""
-                        alt=""
-                        class="w-full h-56 object-cover rounded-xl shadow-xl transition-all duration-300 group-hover:transform group-hover:scale-[1.02] group-hover:shadow-2xl"
-                        id="modal-image"
-                        loading="lazy"
-                    />
-                    <div
-                        class="absolute inset-0 rounded-xl bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    ></div>
-                </div>
-                <div class="space-y-6">
-                    <div
-                        class="flex items-center gap-3 text-custom-600 bg-custom-50/50 p-3 rounded-lg backdrop-blur-sm"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="icon icon-tabler icons-tabler-filled icon-tabler-map-pin"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z"
-                            />
-                        </svg>
-                        <span
-                            id="modal-location"
-                            class="text-xs font-medium"
-                        ></span>
-                    </div>
-                    <p
-                        class="text-custom-700 leading-relaxed text-base bg-white/50 p-4 rounded-xl backdrop-blur-sm"
-                        id="modal-description"
-                    ></p>
-                    <a
-                        href="#"
-                        target="_blank"
-                        id="modal-link"
-                        class="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-custom-600 to-custom-700 text-white rounded-xl hover:from-custom-700 hover:to-custom-800 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                    >
-                        Visita el <span class="ml-1">Sitio Web</span>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 ml-2"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
-                            />
-                            <path
-                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
-                            />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Add Location Button -->
-        <div class="absolute bottom-2 right-8 z-[1000]">
-            <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
-                class="mt-10 group relative inline-block text-custom-600 hover:text-custom-800 duration-300"
-                target="_blank"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="3em"
-                    height="3em"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin-plus text-custom-600 group-hover:text-custom-800"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                    <path
-                        d="M12.794 21.322a2 2 0 0 1 -2.207 -.422l-4.244 -4.243a8 8 0 1 1 13.59 -4.616"
-                    />
-                    <path d="M16 19h6" />
-                    <path d="M19 16v6" />
-                </svg>
-                <span
-                    class="absolute hidden group-hover:flex bottom-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-28 px-2 py-1 bg-custom-800 rounded-lg text-center text-white text-sm before:content-[''] before:absolute before:top-[100%] before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-b-transparent before:border-t-custom-800"
-                >
-                    ¿Tienes algún lugar secreto?
+    <body class="bg-background-300 fredoka">
+        <header class="fixed top-8 left-8 z-50">
+            <a href="/" >
+                <span class="absolute glass w-auto h-full p-4 flex gap-2 items-center -rotate-[.01turn] text-[1.1rem] hover:scale-105">
+                    <i class="lni lni-home-2"></i>
+                    Inicio
                 </span>
             </a>
-        </div>
+        </header>
+        <main class="flex flex-col gap-8">
+            <article
+                class="py-16 px-8 rounded-b-3xl flex flex-col justify-center items-center gap-8 shadow-2xl mx-2 bg-background-100"
+            >
+                <section
+                    class="cursor-default relative overflow-hidden"
+                    id="particles"
+                >
+                    <div class="title relative">
+                        <h1
+                            class="text-[clamp(4rem,10vw,10rem)] text-center font-[Birthstone] whitespace-nowrap"
+                        >
+                            Pensamientos Irreverentes
+                        </h1>
+                        <div
+                            class="absolute top-1/2 -translate-y-1/2 flex justify-center w-full"
+                        >
+                            <span
+                                class="glass w-3/4 max-w-[700px] h-[12vh] -rotate-[.01turn]"
+                            ></span>
+                        </div>
+                    </div>
+                    <h2
+                        class="text-base sm:text-lg md:text-xl lg:text-2xl text-center"
+                    >
+                        Tu ciudad tiene secretos y nosotros tenemos las llaves
+                    </h2>
+                </section>
+                <section>
+                    <form
+                        action="busqueda"
+                        method="get"
+                        class="flex items-center bg-white border border-gray-300 rounded-full shadow p-2"
+                    >
+                        <select
+                            name="ciudadId"
+                            class="appearance-none bg-white text-gray-700 text-sm px-6 py-3 focus:outline-none w-full cursor-text"
+                            id="cities-select"
+                        >
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                        <button
+                            type="submit"
+                            class="bg-accent-400 text-sm font-semibold px-4 py-2 h-full rounded-full hover:bg-accent-500 transition"
+                        >
+                            <i class="lni lni-search-2"></i>
+                        </button>
+                    </form>
+                </section>
+                <section
+                    class="flex flex-row items-center justify-center gap-8 flex-wrap"
+                >
+                    <a
+                        href="busqueda"
+                        class="rounded-full px-6 py-3 text-center bg-accent-400 border border-accent-400 hover:scale-105 transition flex items-center gap-2"
+                        >Ver el Mapa <i class="lni lni-map-marker-1"></i
+                    ></a>
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
+                        class="rounded-full px-6 py-3 text-center border border-base-500 text-base-500 hover:scale-105 transition flex items-center gap-2"
+                        >Agrega tu Secreto <i class="lni lni-plus"></i
+                    ></a>
+                </section>
+            </article>
+            <article class="mx-10 md:mx-20 my-10 flex flex-col gap-8">
+                <section class="flex flex-row justify-between items-end">
+                    <p class="text-xl font-semibold">
+                        Secretos recién agregados
+                    </p>
 
-        <!-- Scripts -->
+                    <div
+                        class="relative flex items-center gap-2 group cursor-pointer"
+                    >
+                        <a
+                            href="busqueda"
+                            class="text-base-500 flex items-center gap-2"
+                            >Ver todos <i class="lni lni-eye"></i
+                        ></a>
+                        <div
+                            class="absolute top-[105%] left-1/2 -translate-x-1/2 h-[1px] w-[105%] bg-base-500 origin-center transform group-hover:scale-x-110 group-hover:top-[120%] group-hover:h-[2px] transition-all duration-300"
+                        ></div>
+                    </div>
+                </section>
+                <section
+                    class="flex flex-row justify-center items-center gap-4"
+                >
+                    <i
+                        class="carousel-left-btn lni lni-arrow-left-circle text-4xl text-base-600 hover:scale-110"
+                    ></i>
+                    <div
+                        class="swiper w-full h-[400px] carousel cursor-grab"
+                        id="swiper-container"
+                    >
+                        <div class="swiper-wrapper" id="swiper-wrapper">
+                            <!-- Swiper slides will be dynamically generated here -->
+                        </div>
+                    </div>
+                    <i
+                        class="carousel-right-btn lni lni-arrow-right-circle text-4xl text-base-600 hover:scale-110"
+                    ></i>
+                </section>
+            </article>
+            <article
+                class="flex flex-row flex-wrap justify-center items-center gap-32 mx-20 my-10"
+            >
+                <section class="flex flex-col gap-4 max-w-[500px] items-start">
+                    <h2 class="text-3xl font-bold mb-4">Un Mapa Irreverente</h2>
+                    <p class="text-lg text-gray-500 mb-6 leading-relaxed">
+                        Los "pensamientos irreverentes" no piden permiso, llegan
+                        y hacen ruido. Descubre rincones escondidos cerca de ti
+                        o planifica tu próxima aventura.
+                    </p>
+                    <a
+                        href="busqueda"
+                        class="inline-block rounded-full px-6 py-3 bg-base-400 text-white hover:bg-base-500 transition-all duration-300 flex items-center gap-2"
+                    >
+                        Abrir Mapa Completo
+                        <i class="lni lni-map-marker-5"></i>
+                    </a>
+                </section>
+                <section class="relative">
+                    <figure
+                        class="overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    >
+                        <img
+                            src="/public/images/discover.jpg"
+                            alt="Vista previa del mapa interactivo"
+                            class="w-[500px] h-[300px] object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </figure>
+                    <div
+                        class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex justify-center w-[120%]"
+                    >
+                        <span
+                            class="glass-light w-full h-[15vh] rotate-[.02turn]"
+                        ></span>
+                    </div>
+                </section>
+            </article>
+        </main>
+        <footer
+            class="mt-20 py-10 px-8 rounded-t-3xl flex flex-col justify-center items-center gap-8 mx-2 bg-background-100"
+            style="box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1)"
+        >
+            <h3 class="text-2xl font-semibold">
+                Explora sin límites, comparte sin filtros
+            </h3>
+            <p class="text-center">
+                ¿Tienes un lugar secreto? <br />
+                Llena este pequeño formulario y háznoslos saber
+            </p>
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeR4KtOy_Me3Z5BWValmBI5vEuX11fdSZs9Qy74PJPjMkFTuA/viewform?usp=header"
+                ><svg
+                    class="svg-bubble"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                >
+                    <defs>
+                        <filter id="gooey">
+                            <feGaussianBlur
+                                in="SourceGraphic"
+                                stdDeviation="5"
+                                result="blur"
+                            />
+                            <feColorMatrix
+                                in="blur"
+                                type="matrix"
+                                values="1 0 0 0 0  
+                                    0 1 0 0 0  
+                                    0 0 1 0 0  
+                                    0 0 0 19 -9"
+                                result="highContrastGraphic"
+                            />
+                            <feComposite
+                                in="SourceGraphic"
+                                in2="highContrastGraphic"
+                                operator="atop"
+                            />
+                        </filter>
+                    </defs>
+                </svg>
+                <button
+                    id="gooey-button"
+                    class="relative text-white bg-base-400 px-6 py-3 border-none focus:outline-none rounded-md"
+                >
+                    Formulario <i class="lni lni-file-plus-circle"></i>
+                    <span class="bubbles absolute inset-0">
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                        <span class="bubble bg-base-400"></span>
+                    </span></button
+            ></a>
+        </footer>
+        <!-- Templates -->
+        <template id="card-template">
+            <div
+                class="swiper-slide w-[250px] flex justify-center items-center"
+            >
+                <div
+                    class="transition-all duration-300 ease-[ease] hover:rotate-6 relative group hover:scale-105"
+                >
+                    <div
+                        class="absolute top-0 left-0 w-full h-full bg-white border-2 border-background-950 -z-10 transition-transform duration-300 origin-center translate-y-[-2%] rotate-[-6deg] group-hover:translate-y-[-4%] group-hover:rotate-[-8deg] shadow-lg"
+                    ></div>
+                    <div
+                        class="absolute top-0 left-0 w-full h-full bg-white border-2 border-background-950 -z-10 transition-transform duration-300 origin-center translate-y-[2%] rotate-[6deg] group-hover:translate-y-[4%] group-hover:rotate-[8deg] shadow-lg"
+                    ></div>
+                    <div
+                        class="aspect-[3/2] bg-white border-2 border-background-950 p-[5%] relative z-10 cursor-pointer transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl"
+                    >
+                        <div
+                            class="w-full aspect-square bg-gray-200 overflow-hidden hover:brightness-110 transition-all duration-300"
+                        >
+                            <img
+                                src="public/images/default.jpg"
+                                alt="Imagen del lugar"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                                card-image
+                            />
+                        </div>
+                        <div class="flex flex-col mt-1">
+                            <h3
+                                class="text-xs font-semibold text-base-500"
+                                card-category
+                            >
+                                Categoría
+                            </h3>
+                            <p class="text-sm" card-title>Nombre del Secreto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!-- Custom Script -->
         <script src="./public/scripts/init.js" type="module"></script>
-        <script>
-            function closeModal() {
-                const modal = document.getElementById("modal");
-                modal.classList.remove("active");
-                resetMarkerIcons();
-            }
-
-            function resetMarkerIcons() {
-                document.querySelectorAll(".marker-icon").forEach((icon) => {
-                    const lordIcon = icon.querySelector("lord-icon");
-                    lordIcon.setAttribute("colors", "primary:#874f79");
-                    lordIcon.setAttribute("delay", "3700");
-                    lordIcon.playerInstance.playFromBeginning();
-                });
-            }
-        </script>
     </body>
 </html>

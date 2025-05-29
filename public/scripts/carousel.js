@@ -8,6 +8,7 @@ function createCard(card_template, place = {}) {
         cardTitle: card.querySelector("[card-title]"),
         cardCategory: card.querySelector("[card-category]"),
         cardImage: card.querySelector("[card-image]"),
+        cardLink: card.querySelector("[card-link]"),
     };
 
     cardElements.cardTitle.textContent = place.nombre;
@@ -19,6 +20,7 @@ function createCard(card_template, place = {}) {
             ? "categories/" + convertirATextoSeguro(place.tipo)
             : "default"
     }.jpg`;
+    cardElements.cardLink.href = `busqueda?ciudadId=${place.id_ciudad}&lugarId=${place.id}`;
 
     return card;
 }

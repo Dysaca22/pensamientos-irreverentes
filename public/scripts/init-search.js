@@ -37,16 +37,24 @@ function createSelectCitiesOptions(cities, selectedCityId) {
 
 function specialSelectFilter(places, special) {
     HTML_ELEMENTS.special_select.value = special;
-    
+
     switch (special) {
         case "ST":
-            return places.filter((place) => place["especial"].includes("Turista"));
+            return places.filter((place) =>
+                place["especial"].includes("Turista")
+            );
         case "EG":
-            return places.filter((place) => place["especial"].includes("Comida"));
+            return places.filter((place) =>
+                place["especial"].includes("Comida")
+            );
         case "EJ":
-            return places.filter((place) => place["especial"].includes("Espantajopo"));
+            return places.filter((place) =>
+                place["especial"].includes("Espantajopo")
+            );
         case "TL":
-            return places.filter((place) => place["especial"].includes("Evento"));
+            return places.filter((place) =>
+                place["especial"].includes("Evento")
+            );
         case "HP":
             return places;
         case "":
@@ -54,7 +62,6 @@ function specialSelectFilter(places, special) {
     }
     return places;
 }
-
 
 async function _init() {
     const cities = await getCities();
@@ -100,9 +107,6 @@ async function _init() {
     if (card) {
         const cardElement = document.querySelector(`#card-${card}`);
         if (cardElement) {
-            const sound = document.getElementById("cameraSound");
-            sound.currentTime = 0;
-            sound.play();
             cardElement?.classList.add("show");
             cardElement?.focus();
         }

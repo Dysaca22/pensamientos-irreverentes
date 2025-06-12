@@ -20,7 +20,7 @@ function createCard(card_template, place = {}) {
             ? "categories/" + convertirATextoSeguro(place.tipo)
             : "default"
     }.jpg`;
-    cardElements.cardLink.href = `busqueda?ciudadId=${place.id_ciudad}&lugarId=${place.id}`;
+    cardElements.cardLink.href = `busqueda?ciudadId=${place.id_ciudad}&lugarId=${place.id}&special=HP`;
 
     return card;
 }

@@ -25,8 +25,18 @@ const ICONS = {
         colors: "primary:#ffc738,secondary:#f24c00,tertiary:#2ca58d,quaternary:#b26836,quinary:#e4e4e4",
         anchor: [20, 40],
     },
-    Juegos: {
+    "Juegos/Deporte": {
         src: "https://cdn.lordicon.com/qhsjyool.json",
+        colors: "primary:#78d0bf,secondary:#aba08c,tertiary:#ffd700",
+        anchor: [20, 20],
+    },
+    "Hotel": {
+        src: "https://cdn.lordicon.com/dznelzdk.json",
+        colors: "primary:#78d0bf,secondary:#aba08c,tertiary:#ffd700",
+        anchor: [20, 20],
+    },
+    "Parranda": {
+        src: "https://cdn.lordicon.com/iujnhzgo.json",
         colors: "primary:#78d0bf,secondary:#aba08c,tertiary:#ffd700",
         anchor: [20, 20],
     },
